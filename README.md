@@ -99,6 +99,7 @@ Bearer ... // JWT must contain "role"
 
 ### Body (form-data):
 ```
+folder // folder
 id // number
 photo // photo form-data
 ```
@@ -109,8 +110,8 @@ Example:
 ```
 {
     "result": [
-        "1/test.jpg",
-        "1/test1.jpg"
+        "folder/1/test.jpg", // folder/id/photoPath
+        "folder/1/test1.jpg" // folder/id/photoPath
     ] // Array of paths to photos
 }
 ```
