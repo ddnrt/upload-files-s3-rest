@@ -99,8 +99,8 @@ Bearer ... // JWT must contain "role"
 
 ### Body (form-data):
 ```
-folder // folder
-id // number
+folder // main folder
+id // child folder, example: product id
 photo // photo form-data
 ```
 
@@ -139,8 +139,8 @@ Example:
 ```
 {
     "result": [
-        "1/test.jpg deleted",
-        "1/test1.jpg deleted"
+        "folder/1/test.jpg deleted",
+        "folder/1/test1.jpg deleted"
     ]
 }
 ```
