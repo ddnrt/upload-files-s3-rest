@@ -51,6 +51,8 @@ To run this project, you will need to add the following environment variables to
 
 `PORT`
 
+Example: env_example.txt
+
 ## Settings
 
 ### Upload photo limits
