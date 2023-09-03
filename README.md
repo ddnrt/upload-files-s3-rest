@@ -51,8 +51,31 @@ To run this project, you will need to add the following environment variables to
 
 `PORT`
 
+## Settings
 
-# Usage/Examples
+### Upload photo limits
+Default = 10
+
+To change the limit, change the value that is passed to upload.array in the file routes/imageRouter.js
+```
+router.post('/', upload.array('photo', 20), roleMiddleware("ADMIN"), ImageController.upload); // changed limit to 20 photos
+```
+
+### Role Validation
+To change the role, change the value that is passed to roleMiddleware in the file routes/imageRouter.js 
+```
+router.post('/', upload.array('photo', 10), roleMiddleware("MODERATOR"), ImageController.upload); // changed role to "MODERATOR"
+router.delete('/', roleMiddleware("ADMIN"), ImageController.delete); // default role "ADMIN"
+```
+### Disabling Role Validation
+If you don't need validation by role delete calling middleware (roleMiddleware("ADMIN")) from router
+```
+router.delete('/', ImageController.delete); // without validation by role
+router.delete('/', roleMiddleware("ADMIN"), ImageController.delete); // default
+
+```
+
+# REST API
 URL: http://localhost:5001/api/v1/image
 
 To change path edit lines
