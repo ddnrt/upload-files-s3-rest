@@ -1,5 +1,8 @@
 
 # Node.js REST API for Uploading Photos to S3 Bucket
+<p align="center">
+  <img src="https://im4.ezgif.com/tmp/ezgif-4-bde8b03b38.gif" width="600" height="300"/>
+</p>
 
 This repository contains a Node.js project that provides a REST API for uploading photos to an S3 bucket. With additional advanced functionalities such as multi-upload, multi-deletion by filename, and JWT role validation. Which is easy to integrate into your project
 
