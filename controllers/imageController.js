@@ -9,7 +9,7 @@ class ImageController {
             const uploadPromises = req.files.map(async (file) => {
                 const params = {
                     Bucket: process.env.S3_BUCKET,
-                    Key: `${req.body.id}/${file.originalname}`,
+                    Key: `${req.body.folder}/${req.body.id}/${file.originalname}`,
                     ACL: 'public-read',
                     Body: file.buffer
                 }
