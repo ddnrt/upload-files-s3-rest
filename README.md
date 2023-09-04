@@ -19,7 +19,7 @@ This repository contains a Node.js project that provides a REST API for uploadin
 Clone the project
 
 ```bash
-  git clone https://github.com/ddnrt/upload-files-s3-rest.git
+  git clone https://github.com/ddnrt/upload-files-s3-rest-api.git
 ```
 Go to the project directory
 ```bash
