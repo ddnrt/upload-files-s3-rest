@@ -7,7 +7,9 @@ This repository contains a Node.js project that provides a REST API for uploadin
 
 ## Features
 
+- Single-Upload
 - Multi-Upload
+- Single-Deletion by Filename
 - Multi-Deletion by Filename
 - JWT Role Validation
 
@@ -26,7 +28,7 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  npm install
+  npm installa
 ```
 
 Start the service
@@ -60,7 +62,7 @@ Default = 10
 
 To change the limit, change the value that is passed to upload.array in the file routes/fileRouter.js
 ```
-router.post('/', upload.array('photo', 20), roleMiddleware("ADMIN"), FileController.upload); // changed limit to 20 files
+router.post('/', upload.array('files', 20), roleMiddleware("ADMIN"), FileController.upload); // changed limit to 20 files
 ```
 
 ### Role Validation
@@ -87,7 +89,7 @@ app.use('/api/v1/', router) // index.js
 router.use('/file', fileRouter) // routes/index.js
 ```
 
-## Upload Images
+## Upload Files
 
 ### Method
 ``` POST```
@@ -118,7 +120,7 @@ Example:
 }
 ```
 
-## Delete Images
+## Delete Files
 
 ### Method
 ``` DELETE ```
