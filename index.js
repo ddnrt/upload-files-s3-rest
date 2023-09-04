@@ -10,7 +10,7 @@ app.use(express.json())
 app.use('/api/v1/', router)
 
 app.listen(PORT, () => {
-    console.log(`Upload Images Service started at http://localhost:${PORT}`)
+    console.log(`Upload Files Service started at http://localhost:${PORT}`)
     }
 )
 

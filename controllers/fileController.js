@@ -1,6 +1,6 @@
 const s3 = require("../config/s3-config")
 
-class ImageController {
+class FileController {
     async upload(req, res) {
         try {
             if (!req.files || req.files.length === 0) {
@@ -26,35 +26,35 @@ class ImageController {
 
     async delete(req, res) {
         try {
-            const { photoKey } = req.body;
-            if (!photoKey || !Array.isArray(photoKey) || photoKey.length === 0) {
-                return res.status(400).send('Invalid or empty photo array.');
+            const { fileKeys } = req.body;
+            if (!fileKeys || !Array.isArray(fileKeys) || fileKeys.length === 0) {
+                return res.status(400).send('Invalid or empty file array.');
             }
 
-            const deletePromise = photoKey.map(async (photo) => {
+            const deletePromise = fileKeys.map(async (file) => {
                 const params = {
                     Bucket: process.env.S3_BUCKET,
-                    Key: photo,
+                    Key: file,
                 };
                 try {
                     await s3.headObject(params).promise();
                     await s3.deleteObject(params).promise();
                     console.log('File deleted successfully:');
-                    return `${photo} deleted`
+                    return `${file} deleted`
                 } catch (error) {
-                    return `${photo} not found`
+                    return `${file} not found`
                 }
             })
 
             const result = await Promise.all(deletePromise);
 
-            console.log('Photos deleted successfully:', result);
+            console.log('Files deleted successfully:', result);
             return res.status(200).json({ result });
         } catch (err) {
-            console.error('Error deleting photo:', err);
-            return res.status(500).send('Error deleting photo.');
+            console.error('Error deleting file:', err);
+            return res.status(500).send('Error deleting file.');
         }
     }
 }
 
-module.exports = new ImageController();
+module.exports = new FileController();
