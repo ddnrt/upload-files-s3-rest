@@ -66,7 +66,7 @@ router.post('/', upload.array('photo', 20), roleMiddleware("ADMIN"), FileControl
 ### Role Validation
 To change the role, change the value that is passed to roleMiddleware in the file routes/fileRouter.js 
 ```
-router.post('/', upload.array('photo', 10), roleMiddleware("MODERATOR"), FileController.upload); // changed role to "MODERATOR"
+router.post('/', upload.array('files', 10), roleMiddleware("MODERATOR"), FileController.upload); // changed role to "MODERATOR"
 router.delete('/', roleMiddleware("ADMIN"), FileController.delete); // default role "ADMIN"
 ```
 ### Disabling Role Validation
